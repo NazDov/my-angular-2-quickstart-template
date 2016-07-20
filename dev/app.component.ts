@@ -1,21 +1,18 @@
 import {Component} from 'angular2/core';
-import {HomeNavBarComponent} from "./home_navbar.component";
-import {ROUTER_DIRECTIVES} from "angular2/router";
-import {RouteConfig} from "angular2/router";
 import {WhatsNewComponent} from "./whats_new.component";
+import {RouteConfig} from "angular2/router";
+import {ROUTER_DIRECTIVES} from "angular2/router";
+import {HowToInstallComponent} from "./how_to_install.component";
+
 
 @Component({
     selector: 'my-app',
-    template: `
-        <home-navbar></home-navbar>
-        <router-outlet></router-outlet>
-    `,
-    directives: [HomeNavBarComponent, ROUTER_DIRECTIVES]
+    templateUrl:'templates/home_navbar.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig(
-    [
-        {path: '/whats_new', name:'WhatsNew', component: WhatsNewComponent}
-    ]
+    [{path:'/whats_new', name:'WhatsNew', component:WhatsNewComponent},
+        {path:'/how_to_install', name:'HowToInstall', component:HowToInstallComponent}]
 )
 export class AppComponent {
 

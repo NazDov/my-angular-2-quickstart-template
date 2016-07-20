@@ -12,13 +12,14 @@ import {OnInit} from "angular2/core";
 )
 export class HowToInstallComponent implements OnInit {
     templateName:string = "Installation Guideline";
-    private status:string = '';
-    private localDataList:string[];
+    status:string = '';
+    localDataList:string[];
 
     constructor(private saveDataService:SaveDataService) {
     }
 
     ngOnInit():any {
+        console.log('data list was initialized')
         this.localDataList = this.saveDataService.getAll();
     }
 

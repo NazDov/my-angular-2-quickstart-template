@@ -33,18 +33,16 @@
         <h4>Thank you for your positive comment!</h4>
     </section>
 
-    <section *ngIf="!isPositive(status)">
+    <section *ngIf="status.length != 0 && !isPositive(status)">
         <h4>Please give us more details about this</h4>
         <div class="form-group">
-            <input type="text" class="form-control" #details>
-            <button [disabled]="details.value==null" (click)="saveDetails(details.value)">submit</button>
+            <input type="text" class="form-control" #details (keyup)="0">
+            <button class="btn btn-primary" [disabled]="details.value.length==0" (click)="saveDetails(details.value)">submit</button>
         </div>
 
-        <div>
-            <ul>
-                <li *ngFor="#detail of localDataList">{{detail.value}}</li>
-            </ul>
-        </div>
+            <div class="list-group">
+                <p class="list-group-item-text" *ngFor="#detail of localDataList">{{detail}}</p>
+            </div>
 
     </section>
 

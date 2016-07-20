@@ -17,10 +17,10 @@ import {ListItem} from "./list-item";
              <shopping-list-item></shopping-list-item>
         </div>
 
-        <div class="container">
-             <div class="row" *ngIf="_shoppingList.length != 0"
-                   <ul class="list-group">
-                    <li class="list-group-item" *ngFor="#shoppingItem of _shoppingList" (click)="onItemSelect(shoppingItem)">{{shoppingItem.name}}({{shoppingItem.amount}})</li>
+        <ul class="container">
+             <div class="row" *ngIf="_shoppingList.length != 0">
+                   <ul>
+                    <li *ngFor="#shoppingItem of _shoppingList" (click)="onItemSelect(shoppingItem)">{{shoppingItem.name}}({{shoppingItem.amount}})</li>
                   </ul>
              </div>
         </div>

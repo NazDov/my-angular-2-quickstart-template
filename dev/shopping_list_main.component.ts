@@ -10,18 +10,16 @@ import {ListItem} from "./list-item";
     {
         selector: 'shopping-list-main',
         template:`
-         <div class="container">
+        <div class="container">
          <h3>ShoppingList App</h3>
             <h6>today is: {{today | date:'long'}}</h6>
             <br>
              <shopping-list-item></shopping-list-item>
         </div>
 
-        <ul class="container">
-             <div class="row" *ngIf="_shoppingList.length != 0">
-                   <ul>
-                    <li *ngFor="#shoppingItem of _shoppingList" (click)="onItemSelect(shoppingItem)">{{shoppingItem.name}}({{shoppingItem.amount}})</li>
-                  </ul>
+        <div class="container" *ngIf="_shoppingList.length != 0">
+             <div class="list-group">
+                    <p class="list-group-item-text" *ngFor="#shoppingItem of _shoppingList" (click)="onItemSelect(shoppingItem)">{{shoppingItem.name}}({{shoppingItem.amount}})</p>
              </div>
         </div>
 

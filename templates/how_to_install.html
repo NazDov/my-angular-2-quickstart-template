@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>{{templateName}}</h1>
+        <p class="lead"></p>
+    </div>
+
+    <h4>Install Node.js and npm. make sure you have the latest version by running npm -v</h4>
+    <p></p>
+
+    <h4>Add package definition and configuration files</h4>
+    <article>
+        <ul class="list-group">
+            <li class="list-group-item"><span [ngStyle]="{color:'red'}">package.json</span> lists packages the
+                QuickStart app depends on and defines some useful scripts.
+            </li>
+            <li class="list-group-item">tsconfig.json is the TypeScript compiler configuration file.</li>
+        </ul>
+    </article>
+
+    <h4>use <b>npm install</b> to load dependencies</h4>
+
+    <h4>Leave your comments?</h4>
+    <h5>Was it helpful?</h5>
+    <section>
+        <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="status">
+        </div>
+        <h4>{{status}}</h4>
+    </section>
+    <br>
+    <section *ngIf="isPositive(status)">
+        <h4>Thank you for your positive comment!</h4>
+    </section>
+
+    <section *ngIf="!isPositive(status)">
+        <h4>Please give us more details about this</h4>
+        <div class="form-group">
+            <input type="text" class="form-control" #details>
+            <button [disabled]="details.value==null" (click)="saveDetails(details.value)">submit</button>
+        </div>
+
+        <div>
+            <ul>
+                <li *ngFor="#detail of localDataList">{{detail.value}}</li>
+            </ul>
+        </div>
+
+    </section>
+
+</div>

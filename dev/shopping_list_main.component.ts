@@ -10,24 +10,24 @@ import {ListItem} from "./list-item";
     {
         selector: 'shopping-list-main',
         template:`
-         <section class="row center-block">
-            <h4>today is: {{today | date:'long'}}</h4>
+         <div class="container">
+         <h3>ShoppingList App</h3>
+            <h6>today is: {{today | date:'long'}}</h6>
             <br>
              <shopping-list-item></shopping-list-item>
-        </section>
+        </div>
 
-        <section class="container top">
-             <div class="row" *ngIf="_shoppingList.length != 0">
-                  <input type="text" placeholder="search by..." #f (keyup)="0">
-                   <ul>
-                  <li *ngFor="#shoppingItem of _shoppingList" (click)="onItemSelect(shoppingItem)">{{shoppingItem.name}}({{shoppingItem.amount}})</li>
+        <div class="container">
+             <div class="row" *ngIf="_shoppingList.length != 0"
+                   <ul class="list-group">
+                    <li class="list-group-item" *ngFor="#shoppingItem of _shoppingList" (click)="onItemSelect(shoppingItem)">{{shoppingItem.name}}({{shoppingItem.amount}})</li>
                   </ul>
              </div>
-        </section>
+        </div>
 
-        <section *ngIf="_isSelected">
+        <div class="container" *ngIf="_isSelected">
             <shopping-list-item-change [selectedItem]="_selectedItem" (deleted)="onDelete()"></shopping-list-item-change>
-        </section>
+        </div>
 
         `,
         directives:[ShoppingListItemComponent, ShoppingListItemChangeComponent],
